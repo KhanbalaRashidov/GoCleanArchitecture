@@ -44,7 +44,7 @@ func NewMongoDatabase(env *envs.Env) *mongo.Client {
 	return client
 }
 
-func CloseMongoDBConnection(client mongo.Client) {
+func CloseMongoDBConnection(client *mongo.Client) {
 	if client == nil {
 		return
 	}
