@@ -12,14 +12,14 @@ func main() {
 
 	env := app.Env
 
-	db := app.Mongo.Database(env.DBName)
+	dbMongo := app.Mongo.Database(env.DBName)
 	defer app.CloseDBConnection()
 
 	timeout := time.Duration(env.ContextTimeout) * time.Second
 
 	gin := gin.Default()
 
-	route.Setup(env, timeout, db, gin)
+	route.Setup(env, timeout, dbMongo, gin)
 
 	gin.Run(env.ServerAddress)
 }

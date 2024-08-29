@@ -3,12 +3,12 @@ package route
 import (
 	"github.com/KhanbalaRashidov/GoCleanArchitecture/api/middleware"
 	"github.com/KhanbalaRashidov/GoCleanArchitecture/envs"
-	"github.com/KhanbalaRashidov/GoCleanArchitecture/mongo"
 	"github.com/gin-gonic/gin"
+	mongo2 "go.mongodb.org/mongo-driver/mongo"
 	"time"
 )
 
-func Setup(env *envs.Env, timeout time.Duration, db mongo.Database, gin *gin.Engine) {
+func Setup(env *envs.Env, timeout time.Duration, db *mongo2.Database, gin *gin.Engine) {
 	publicRouter := gin.Group("")
 	// All Public APIs
 	NewSignupRouter(env, timeout, db, publicRouter)
